@@ -21,10 +21,7 @@ struct EditSheet : View{
                     VStack{
                         TextField("Description", text: $ue.nom)
                         TextField("Coefficient", value: $ue.coef, format: .number)
-                    }
-                    
-                    
-                    
+                    }            
                 }
                 Divider()
                 Section(header: Text("Matieres").font(.title)) {
@@ -46,7 +43,7 @@ struct EditSheet : View{
                         Text("Ajouter une matiere")
                     }
                 }
-            }.padding().background(NoteColor().ue_back)
+            }.padding()
             
         }
         .navigationBarItems(trailing:

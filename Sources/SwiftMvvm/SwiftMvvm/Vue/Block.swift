@@ -18,7 +18,7 @@ struct Block: View {
         VStack(alignment: .leading) {
             
             HStack {
-                Image(systemName: "menucard.fill")
+                Image(systemName: "doc.on.doc.fill")
                 Text("Blocs").bold().font(.title)
             }
             
@@ -32,7 +32,7 @@ struct Block: View {
                 }
                
             }
-        }.padding().background(NoteColor().ue_back).cornerRadius(10)
+        }.padding().cornerRadius(10)
     }
 }
 struct Block_Previews: PreviewProvider {

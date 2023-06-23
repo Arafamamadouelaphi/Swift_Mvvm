@@ -5,8 +5,7 @@ import SwiftUI
 public struct UeView : View{
    @ObservedObject var bloc : BlocVM
    @ObservedObject var ue : UeVM
-    public var body: some View {
-        
+    public var body: some View {        
         VStack(alignment:.leading){
 
             Divider()
@@ -15,8 +14,6 @@ public struct UeView : View{
                 Spacer()
                 Text(ue.coef.description)
             }
-            
-       
             HStack(){
                 Capsule().foregroundColor( ue.totalMoyenne * 5 < 50 ? .red : .green).frame(width: ue.totalMoyenne * 5 ,height: 22)
               Spacer()
@@ -35,10 +32,8 @@ public struct UeView : View{
 
 struct UeView_Previews: PreviewProvider {
     static var previews: some View {
-       
             let ue =  DataStub().load()[0]
             let ueVM = UeVM(withUe: ue)
-            
         UeView(bloc: BlocVM(withBloc: Bloc(nom: "Projet/Stage", ues: DataStub().loadUeStage_Proj(),isUq: true)), ue: ueVM)
         }
    

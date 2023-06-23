@@ -23,7 +23,7 @@ struct Home: View {
                 Block(manager: manager )
                VStack(alignment : .leading){
                    HStack(alignment:.bottom){
-                       Image(systemName: "menucard.fill")
+                       Image(systemName: "doc.on.doc.fill")
                        Text("UEs").bold().font(.title)
                    }.padding()
                        
@@ -34,18 +34,12 @@ struct Home: View {
                                
                                     UeView(bloc: item, ue:  ue)
                                }
-                               
-                              
                               
                            }
                            
                        }
-               }.padding().background(NoteColor().ue_back).cornerRadius(10)
-                
-                
+               }.padding()             
                 }.padding()
-                
-                 
         }
        
     }

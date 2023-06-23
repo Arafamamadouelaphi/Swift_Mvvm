@@ -10,8 +10,6 @@ import SwiftUI
 struct Uee: View {
     @ObservedObject var ue: UeVM
     @ObservedObject var bloc: BlocVM
-    
-
     var body: some View {
         NavigationView {
             VStack {

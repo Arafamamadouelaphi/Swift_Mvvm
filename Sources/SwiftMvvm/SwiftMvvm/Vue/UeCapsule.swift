@@ -70,18 +70,12 @@ import UIKit
                 }
         }
     }
-     
-     
      private func updateMoy(){
          var da = ue.model.totalMoyenne * capsuleWidth / 100
          ue.model.coef = ue.model.coef + 1
          print(da)
      }
 }
-
-
-
-
 struct CapsuleV_Previews: PreviewProvider {
     static var previews: some View {
         

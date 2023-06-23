@@ -35,7 +35,6 @@
 		EC7693022A4568D700F9F644 /* MatiereEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7693012A4568D700F9F644 /* MatiereEditView.swift */; };
 		EC7693042A4568F300F9F644 /* BlockItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7693032A4568F300F9F644 /* BlockItem.swift */; };
 		EC7693062A45691900F9F644 /* AddSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7693052A45691900F9F644 /* AddSheet.swift */; };
-		EC7693082A456A2400F9F644 /* NoteColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7693072A456A2400F9F644 /* NoteColor.swift */; };
 		EC76930A2A456B6B00F9F644 /* Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7693092A456B6B00F9F644 /* Block.swift */; };
 		EC7725452A1F814A0075CBBF /* UeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7725442A1F814A0075CBBF /* UeView.swift */; };
 		EC7725542A1F90CF0075CBBF /* BlocModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7725532A1F90CF0075CBBF /* BlocModel.swift */; };
@@ -99,7 +98,6 @@
 		EC7693012A4568D700F9F644 /* MatiereEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatiereEditView.swift; sourceTree = "<group>"; };
 		EC7693032A4568F300F9F644 /* BlockItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockItem.swift; sourceTree = "<group>"; };
 		EC7693052A45691900F9F644 /* AddSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSheet.swift; sourceTree = "<group>"; };
-		EC7693072A456A2400F9F644 /* NoteColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteColor.swift; sourceTree = "<group>"; };
 		EC7693092A456B6B00F9F644 /* Block.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Block.swift; sourceTree = "<group>"; };
 		EC7725442A1F814A0075CBBF /* UeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UeView.swift; sourceTree = "<group>"; };
 		EC7725532A1F90CF0075CBBF /* BlocModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocModel.swift; sourceTree = "<group>"; };
@@ -171,7 +169,6 @@
 				EC1A52612A1CE12900F8CC93 /* SwiftMvvmApp.swift */,
 				EC1A52632A1CE12900F8CC93 /* ContentView.swift */,
 				EC1A52652A1CE12A00F8CC93 /* Assets.xcassets */,
-				EC7693072A456A2400F9F644 /* NoteColor.swift */,
 				EC1A52672A1CE12A00F8CC93 /* Preview Content */,
 			);
 			path = SwiftMvvm;
@@ -413,7 +410,6 @@
 				ECF5E2722A23102800A2E9CA /* BlocVm.swift in Sources */,
 				EC7692E82A4565ED00F9F644 /* UeCollection.swift in Sources */,
 				EC7693002A4568BD00F9F644 /* EditSheet.swift in Sources */,
-				EC7693082A456A2400F9F644 /* NoteColor.swift in Sources */,
 				EC7692F82A45685200F9F644 /* MatiereUnq.swift in Sources */,
 				EC7692EA2A45660500F9F644 /* MatiereCollection.swift in Sources */,
 				EC47F9D62A34C50C00CA3A3F /* DataManager.swift in Sources */,
