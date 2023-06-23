@@ -14,23 +14,30 @@
 		EC1A52732A1CE12A00F8CC93 /* SwiftMvvmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1A52722A1CE12A00F8CC93 /* SwiftMvvmTests.swift */; };
 		EC1A527D2A1CE12A00F8CC93 /* SwiftMvvmUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1A527C2A1CE12A00F8CC93 /* SwiftMvvmUITests.swift */; };
 		EC1A527F2A1CE12A00F8CC93 /* SwiftMvvmUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1A527E2A1CE12A00F8CC93 /* SwiftMvvmUITestsLaunchTests.swift */; };
-		EC1A528C2A1CE77F00F8CC93 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1A528B2A1CE77F00F8CC93 /* HomeView.swift */; };
-		EC2E21F42A25E9FA00DED570 /* MatiereUniq.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2E21F32A25E9FA00DED570 /* MatiereUniq.swift */; };
-		EC2E21F82A25FCAA00DED570 /* stbmat.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2E21F72A25FCAA00DED570 /* stbmat.swift */; };
-		EC369C212A325FB5005EE7C8 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC369C202A325FB5005EE7C8 /* Note.swift */; };
 		EC47F9D62A34C50C00CA3A3F /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC47F9D52A34C50C00CA3A3F /* DataManager.swift */; };
-		EC47F9D82A34C62000CA3A3F /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC47F9D72A34C62000CA3A3F /* Manager.swift */; };
 		EC47F9DA2A34C73B00CA3A3F /* Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC47F9D92A34C73B00CA3A3F /* Stub.swift */; };
-		EC47F9DC2A34D36200CA3A3F /* EditableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC47F9DB2A34D36200CA3A3F /* EditableView.swift */; };
-		EC47F9E02A34F00C00CA3A3F /* MatiereEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC47F9DF2A34F00C00CA3A3F /* MatiereEditView.swift */; };
 		EC47F9E22A35E89400CA3A3F /* UeeVm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC47F9E12A35E89400CA3A3F /* UeeVm.swift */; };
 		EC47F9E42A35EF1800CA3A3F /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC47F9E32A35EF1800CA3A3F /* ArrayExtension.swift */; };
-		EC47F9E62A3633DA00CA3A3F /* ManagerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC47F9E52A3633DA00CA3A3F /* ManagerVM.swift */; };
-		EC7725432A1F80980075CBBF /* BlocView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7725422A1F80980075CBBF /* BlocView.swift */; };
+		EC47F9E62A3633DA00CA3A3F /* DataManagerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC47F9E52A3633DA00CA3A3F /* DataManagerVM.swift */; };
+		EC7692E82A4565ED00F9F644 /* UeCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7692E72A4565ED00F9F644 /* UeCollection.swift */; };
+		EC7692EA2A45660500F9F644 /* MatiereCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7692E92A45660500F9F644 /* MatiereCollection.swift */; };
+		EC7692EC2A45661C00F9F644 /* BlocCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7692EB2A45661C00F9F644 /* BlocCollection.swift */; };
+		EC7692EE2A45667700F9F644 /* CollectionVMUe.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7692ED2A45667700F9F644 /* CollectionVMUe.swift */; };
+		EC7692F02A45669000F9F644 /* MatiereCollectionVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7692EF2A45669000F9F644 /* MatiereCollectionVM.swift */; };
+		EC7692F22A4566CF00F9F644 /* BlocCollectionVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7692F12A4566CF00F9F644 /* BlocCollectionVM.swift */; };
+		EC7692F42A45680700F9F644 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7692F32A45680700F9F644 /* Home.swift */; };
+		EC7692F62A45683100F9F644 /* Uee.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7692F52A45683100F9F644 /* Uee.swift */; };
+		EC7692F82A45685200F9F644 /* MatiereUnq.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7692F72A45685200F9F644 /* MatiereUnq.swift */; };
+		EC7692FA2A45687000F9F644 /* edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7692F92A45687000F9F644 /* edit.swift */; };
+		EC7692FC2A45689000F9F644 /* UeCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7692FB2A45689000F9F644 /* UeCapsule.swift */; };
+		EC7692FE2A4568A900F9F644 /* MatiereCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7692FD2A4568A900F9F644 /* MatiereCapsule.swift */; };
+		EC7693002A4568BD00F9F644 /* EditSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7692FF2A4568BD00F9F644 /* EditSheet.swift */; };
+		EC7693022A4568D700F9F644 /* MatiereEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7693012A4568D700F9F644 /* MatiereEditView.swift */; };
+		EC7693042A4568F300F9F644 /* BlockItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7693032A4568F300F9F644 /* BlockItem.swift */; };
+		EC7693062A45691900F9F644 /* AddSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7693052A45691900F9F644 /* AddSheet.swift */; };
+		EC7693082A456A2400F9F644 /* NoteColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7693072A456A2400F9F644 /* NoteColor.swift */; };
+		EC76930A2A456B6B00F9F644 /* Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7693092A456B6B00F9F644 /* Block.swift */; };
 		EC7725452A1F814A0075CBBF /* UeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7725442A1F814A0075CBBF /* UeView.swift */; };
-		EC7725492A1F8DFE0075CBBF /* MatiereView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7725482A1F8DFE0075CBBF /* MatiereView.swift */; };
-		EC77254B2A1F8E770075CBBF /* VuePrincipale.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC77254A2A1F8E770075CBBF /* VuePrincipale.swift */; };
-		EC77254D2A1F8EE90075CBBF /* ListUe.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC77254C2A1F8EE90075CBBF /* ListUe.swift */; };
 		EC7725542A1F90CF0075CBBF /* BlocModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7725532A1F90CF0075CBBF /* BlocModel.swift */; };
 		EC7725562A1F90FD0075CBBF /* UE.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7725552A1F90FD0075CBBF /* UE.swift */; };
 		EC7725582A1F91300075CBBF /* Matiere.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7725572A1F91300075CBBF /* Matiere.swift */; };
@@ -71,23 +78,30 @@
 		EC1A52782A1CE12A00F8CC93 /* SwiftMvvmUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftMvvmUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC1A527C2A1CE12A00F8CC93 /* SwiftMvvmUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftMvvmUITests.swift; sourceTree = "<group>"; };
 		EC1A527E2A1CE12A00F8CC93 /* SwiftMvvmUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftMvvmUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		EC1A528B2A1CE77F00F8CC93 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		EC2E21F32A25E9FA00DED570 /* MatiereUniq.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatiereUniq.swift; sourceTree = "<group>"; };
-		EC2E21F72A25FCAA00DED570 /* stbmat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stbmat.swift; sourceTree = "<group>"; };
-		EC369C202A325FB5005EE7C8 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		EC47F9D52A34C50C00CA3A3F /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
-		EC47F9D72A34C62000CA3A3F /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
 		EC47F9D92A34C73B00CA3A3F /* Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stub.swift; sourceTree = "<group>"; };
-		EC47F9DB2A34D36200CA3A3F /* EditableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableView.swift; sourceTree = "<group>"; };
-		EC47F9DF2A34F00C00CA3A3F /* MatiereEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatiereEditView.swift; sourceTree = "<group>"; };
 		EC47F9E12A35E89400CA3A3F /* UeeVm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UeeVm.swift; sourceTree = "<group>"; };
 		EC47F9E32A35EF1800CA3A3F /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
-		EC47F9E52A3633DA00CA3A3F /* ManagerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerVM.swift; sourceTree = "<group>"; };
-		EC7725422A1F80980075CBBF /* BlocView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocView.swift; sourceTree = "<group>"; };
+		EC47F9E52A3633DA00CA3A3F /* DataManagerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerVM.swift; sourceTree = "<group>"; };
+		EC7692E72A4565ED00F9F644 /* UeCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UeCollection.swift; sourceTree = "<group>"; };
+		EC7692E92A45660500F9F644 /* MatiereCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatiereCollection.swift; sourceTree = "<group>"; };
+		EC7692EB2A45661C00F9F644 /* BlocCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocCollection.swift; sourceTree = "<group>"; };
+		EC7692ED2A45667700F9F644 /* CollectionVMUe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionVMUe.swift; sourceTree = "<group>"; };
+		EC7692EF2A45669000F9F644 /* MatiereCollectionVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatiereCollectionVM.swift; sourceTree = "<group>"; };
+		EC7692F12A4566CF00F9F644 /* BlocCollectionVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocCollectionVM.swift; sourceTree = "<group>"; };
+		EC7692F32A45680700F9F644 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		EC7692F52A45683100F9F644 /* Uee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Uee.swift; sourceTree = "<group>"; };
+		EC7692F72A45685200F9F644 /* MatiereUnq.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatiereUnq.swift; sourceTree = "<group>"; };
+		EC7692F92A45687000F9F644 /* edit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = edit.swift; sourceTree = "<group>"; };
+		EC7692FB2A45689000F9F644 /* UeCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UeCapsule.swift; sourceTree = "<group>"; };
+		EC7692FD2A4568A900F9F644 /* MatiereCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatiereCapsule.swift; sourceTree = "<group>"; };
+		EC7692FF2A4568BD00F9F644 /* EditSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSheet.swift; sourceTree = "<group>"; };
+		EC7693012A4568D700F9F644 /* MatiereEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatiereEditView.swift; sourceTree = "<group>"; };
+		EC7693032A4568F300F9F644 /* BlockItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockItem.swift; sourceTree = "<group>"; };
+		EC7693052A45691900F9F644 /* AddSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSheet.swift; sourceTree = "<group>"; };
+		EC7693072A456A2400F9F644 /* NoteColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteColor.swift; sourceTree = "<group>"; };
+		EC7693092A456B6B00F9F644 /* Block.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Block.swift; sourceTree = "<group>"; };
 		EC7725442A1F814A0075CBBF /* UeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UeView.swift; sourceTree = "<group>"; };
-		EC7725482A1F8DFE0075CBBF /* MatiereView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatiereView.swift; sourceTree = "<group>"; };
-		EC77254A2A1F8E770075CBBF /* VuePrincipale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VuePrincipale.swift; sourceTree = "<group>"; };
-		EC77254C2A1F8EE90075CBBF /* ListUe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUe.swift; sourceTree = "<group>"; };
 		EC7725532A1F90CF0075CBBF /* BlocModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocModel.swift; sourceTree = "<group>"; };
 		EC7725552A1F90FD0075CBBF /* UE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UE.swift; sourceTree = "<group>"; };
 		EC7725572A1F91300075CBBF /* Matiere.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matiere.swift; sourceTree = "<group>"; };
@@ -157,6 +171,7 @@
 				EC1A52612A1CE12900F8CC93 /* SwiftMvvmApp.swift */,
 				EC1A52632A1CE12900F8CC93 /* ContentView.swift */,
 				EC1A52652A1CE12A00F8CC93 /* Assets.xcassets */,
+				EC7693072A456A2400F9F644 /* NoteColor.swift */,
 				EC1A52672A1CE12A00F8CC93 /* Preview Content */,
 			);
 			path = SwiftMvvm;
@@ -191,7 +206,6 @@
 			isa = PBXGroup;
 			children = (
 				EC47F9D52A34C50C00CA3A3F /* DataManager.swift */,
-				EC47F9D72A34C62000CA3A3F /* Manager.swift */,
 				EC47F9D92A34C73B00CA3A3F /* Stub.swift */,
 			);
 			path = Manager;
@@ -204,6 +218,9 @@
 				EC7725552A1F90FD0075CBBF /* UE.swift */,
 				EC7725572A1F91300075CBBF /* Matiere.swift */,
 				EC77255A2A1F92EC0075CBBF /* Maquette.swift */,
+				EC7692E72A4565ED00F9F644 /* UeCollection.swift */,
+				EC7692E92A45660500F9F644 /* MatiereCollection.swift */,
+				EC7692EB2A45661C00F9F644 /* BlocCollection.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -211,17 +228,18 @@
 		EC7725592A1F91530075CBBF /* Vue */ = {
 			isa = PBXGroup;
 			children = (
-				EC77254A2A1F8E770075CBBF /* VuePrincipale.swift */,
-				EC77254C2A1F8EE90075CBBF /* ListUe.swift */,
-				EC7725482A1F8DFE0075CBBF /* MatiereView.swift */,
-				EC1A528B2A1CE77F00F8CC93 /* HomeView.swift */,
 				EC7725442A1F814A0075CBBF /* UeView.swift */,
-				EC7725422A1F80980075CBBF /* BlocView.swift */,
-				EC2E21F32A25E9FA00DED570 /* MatiereUniq.swift */,
-				EC2E21F72A25FCAA00DED570 /* stbmat.swift */,
-				EC369C202A325FB5005EE7C8 /* Note.swift */,
-				EC47F9DB2A34D36200CA3A3F /* EditableView.swift */,
-				EC47F9DF2A34F00C00CA3A3F /* MatiereEditView.swift */,
+				EC7692F32A45680700F9F644 /* Home.swift */,
+				EC7692F52A45683100F9F644 /* Uee.swift */,
+				EC7692F72A45685200F9F644 /* MatiereUnq.swift */,
+				EC7692F92A45687000F9F644 /* edit.swift */,
+				EC7692FB2A45689000F9F644 /* UeCapsule.swift */,
+				EC7692FD2A4568A900F9F644 /* MatiereCapsule.swift */,
+				EC7692FF2A4568BD00F9F644 /* EditSheet.swift */,
+				EC7693012A4568D700F9F644 /* MatiereEditView.swift */,
+				EC7693032A4568F300F9F644 /* BlockItem.swift */,
+				EC7693052A45691900F9F644 /* AddSheet.swift */,
+				EC7693092A456B6B00F9F644 /* Block.swift */,
 			);
 			path = Vue;
 			sourceTree = "<group>";
@@ -233,7 +251,10 @@
 				ECF5E2752A23104800A2E9CA /* MatiereVm.swift */,
 				EC47F9E12A35E89400CA3A3F /* UeeVm.swift */,
 				EC47F9E32A35EF1800CA3A3F /* ArrayExtension.swift */,
-				EC47F9E52A3633DA00CA3A3F /* ManagerVM.swift */,
+				EC47F9E52A3633DA00CA3A3F /* DataManagerVM.swift */,
+				EC7692ED2A45667700F9F644 /* CollectionVMUe.swift */,
+				EC7692EF2A45669000F9F644 /* MatiereCollectionVM.swift */,
+				EC7692F12A4566CF00F9F644 /* BlocCollectionVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -386,35 +407,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC7725432A1F80980075CBBF /* BlocView.swift in Sources */,
-				EC77254D2A1F8EE90075CBBF /* ListUe.swift in Sources */,
 				EC47F9E22A35E89400CA3A3F /* UeeVm.swift in Sources */,
-				EC369C212A325FB5005EE7C8 /* Note.swift in Sources */,
+				EC7693042A4568F300F9F644 /* BlockItem.swift in Sources */,
+				EC7693022A4568D700F9F644 /* MatiereEditView.swift in Sources */,
 				ECF5E2722A23102800A2E9CA /* BlocVm.swift in Sources */,
+				EC7692E82A4565ED00F9F644 /* UeCollection.swift in Sources */,
+				EC7693002A4568BD00F9F644 /* EditSheet.swift in Sources */,
+				EC7693082A456A2400F9F644 /* NoteColor.swift in Sources */,
+				EC7692F82A45685200F9F644 /* MatiereUnq.swift in Sources */,
+				EC7692EA2A45660500F9F644 /* MatiereCollection.swift in Sources */,
 				EC47F9D62A34C50C00CA3A3F /* DataManager.swift in Sources */,
-				EC47F9DC2A34D36200CA3A3F /* EditableView.swift in Sources */,
-				EC1A528C2A1CE77F00F8CC93 /* HomeView.swift in Sources */,
+				EC76930A2A456B6B00F9F644 /* Block.swift in Sources */,
 				EC1A52642A1CE12900F8CC93 /* ContentView.swift in Sources */,
 				EC7725562A1F90FD0075CBBF /* UE.swift in Sources */,
-				EC2E21F82A25FCAA00DED570 /* stbmat.swift in Sources */,
 				EC7725542A1F90CF0075CBBF /* BlocModel.swift in Sources */,
 				EC7725452A1F814A0075CBBF /* UeView.swift in Sources */,
 				EC9D96642A33519800513D62 /* StubMat.swift in Sources */,
 				EC77255B2A1F92EC0075CBBF /* Maquette.swift in Sources */,
-				EC47F9D82A34C62000CA3A3F /* Manager.swift in Sources */,
-				EC2E21F42A25E9FA00DED570 /* MatiereUniq.swift in Sources */,
-				EC77254B2A1F8E770075CBBF /* VuePrincipale.swift in Sources */,
+				EC7692FC2A45689000F9F644 /* UeCapsule.swift in Sources */,
+				EC7692FE2A4568A900F9F644 /* MatiereCapsule.swift in Sources */,
 				ECF5E27A2A23177500A2E9CA /* UeStruct.swift in Sources */,
+				EC7692FA2A45687000F9F644 /* edit.swift in Sources */,
 				EC7725652A2095620075CBBF /* StructBlocs.swift in Sources */,
 				EC1A52622A1CE12900F8CC93 /* SwiftMvvmApp.swift in Sources */,
-				EC47F9E62A3633DA00CA3A3F /* ManagerVM.swift in Sources */,
-				EC7725492A1F8DFE0075CBBF /* MatiereView.swift in Sources */,
+				EC47F9E62A3633DA00CA3A3F /* DataManagerVM.swift in Sources */,
+				EC7693062A45691900F9F644 /* AddSheet.swift in Sources */,
 				EC7725582A1F91300075CBBF /* Matiere.swift in Sources */,
-				EC47F9E02A34F00C00CA3A3F /* MatiereEditView.swift in Sources */,
+				EC7692EC2A45661C00F9F644 /* BlocCollection.swift in Sources */,
+				EC7692F42A45680700F9F644 /* Home.swift in Sources */,
+				EC7692EE2A45667700F9F644 /* CollectionVMUe.swift in Sources */,
 				EC47F9E42A35EF1800CA3A3F /* ArrayExtension.swift in Sources */,
+				EC7692F62A45683100F9F644 /* Uee.swift in Sources */,
+				EC7692F02A45669000F9F644 /* MatiereCollectionVM.swift in Sources */,
 				ECF5E2762A23104800A2E9CA /* MatiereVm.swift in Sources */,
 				EC9D96622A334F9A00513D62 /* StubData.swift in Sources */,
 				EC47F9DA2A34C73B00CA3A3F /* Stub.swift in Sources */,
+				EC7692F22A4566CF00F9F644 /* BlocCollectionVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

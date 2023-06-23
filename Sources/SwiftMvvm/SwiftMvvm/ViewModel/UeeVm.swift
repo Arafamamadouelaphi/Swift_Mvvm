@@ -12,72 +12,160 @@ import Foundation
  var nom: String
  var listeMatiere: [Matiere]
  */
-class UeVm : ObservableObject,Equatable , Identifiable {        
-   static func == (lhs: UeVm, rhs: UeVm) -> Bool {
+
+
+class UeVM : ObservableObject, Identifiable, Equatable,Hashable {
+    static func == (lhs: UeVM, rhs: UeVM) -> Bool {
         lhs.id == rhs.id
     }
-    
-    // dans le model on met à jour les donnes du vue model les proprietes à présenter à la vue
-    @Published var model: UE = UE(id: UUID(), coefficient: 2,moyenne: 10,nom: "", listeMatiere: []  )  {
+    private var notificationFuncs: [AnyHashable:(UeVM) -> ()] = [:]
+    func onNotifyChanged(source:MatiereVM){
+        if let index = self.model.matieres.firstIndex(where: {$0 == source.model}) {
+            self.model.matieres[index] = source.model
+        }
+            self.objectWillChange.send()
+        }
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(self.nom)
+        hasher.combine(self.totalMoyenne)
+        }
+    public func subscribe(with subscriber: AnyHashable, andWithFunction function:@escaping (UeVM) -> ()) {
+        notificationFuncs[subscriber] = function
+       }
+    public func unsubscribe(with subscriber: AnyHashable) {
+            notificationFuncs.removeValue(forKey: subscriber)
+        }
+     func onNotifyChanged(){
+        for f in notificationFuncs.values {
+                f(self)
+            }
+        }
+    @Published  var totalMoyenne: Double = 0.0 {
         didSet{
-            
+            let moy = updateTotalMoyenne()
+            if moy != self.totalMoyenne {
+                self.totalMoyenne = moy
+            }
+        }
+    }
+    public func updateTotalMoyenne()->Double {
+        let totalMoyenne = someMatieresVM.reduce(0.0) { $0 + Double($1.moyenne) * Double($1.coef) }
+        let totalCoef = someMatieresVM.reduce(0.0) { $0 + Double($1.coef) }
+       print("ue")
+        print(self.someMatieresVM.count)
+        return totalMoyenne / totalCoef
+
+    }
+    init(withUe ue : Ue) {
+        self.model = ue
+         
+     }
+    @Published var model : Ue = DataStub().load()[0]{
+        willSet(newValue) {
+                    if !self.someMatieresVM.map({$0.model}).compare(to: newValue.matieres){
+                        self.someMatieresVM.forEach { $0.unsubscribe(with: self) }
+                    }
+                }
+        didSet{
             if self.model.nom != self.nom {
                 self.nom = self.model.nom
             }
-            
-            if self.model.coefficient != self.coefficient {
-                self.coefficient = self.model.coefficient
+            if self.model.coef != self.coef {
+                self.coef = self.model.coef
             }
-            if self.model.moyenne != self.moyenne
-            {
-                self.moyenne = self.model.moyenne
+            if !self.model.matieres.compare(to: self.someMatieresVM.map({$0.model})){
+                self.someMatieresVM = self.model.matieres.map({MatiereVM(withMat: $0)})
+                self.someMatieresVM.forEach { mvm in
+                    mvm.subscribe(with: self, andWithFunction: onNotifyChanged(source:))
+             }
+           
             }
-            if !self.model.listeMatiere.compare(to: self.someMatVM.map({$0.model})){
-                            self.someMatVM = self.model.listeMatiere.map({MatiereVm(withModel: $0)})
-                        }
+            let moyen = updateTotalMoyenne()
+            if moyen != self.totalMoyenne {
+                self.totalMoyenne = moyen
+            }
+            self.onNotifyChanged()
         }
-    } 
+    }
     public var id: UUID { model.id }
+
+    @Published
+    var nom: String = "" {
+        didSet {
+            if self.model.nom != self.nom {
+                self.model.nom = self.nom
+            }
+        }
+    }
     
     @Published
-        var nom: String = "" {
-            didSet {
-                if self.model.nom != self.nom {
-                    self.model.nom = self.nom
+    var coef: Int = 0 {
+        didSet {
+            if self.model.coef != self.coef {
+                self.model.coef = self.coef
+             }
+        }
+    }
+    @Published var someMatieresVM: [MatiereVM] = [] {
+        didSet {
+            let someModelMatiere = self.someMatieresVM.map({$0.model})
+                if !self.model.matieres.compare(to: someModelMatiere){
+                    self.model.matieres = someModelMatiere.map({$0})
+                 
                 }
             }
         }
+    public init (){}
     @Published
-    var coefficient : Double = 0 {
-        didSet {
-            if self.model.coefficient != self.coefficient {
-                self.model.coefficient = self.coefficient
+    var isEditing: Bool = false
+    
+    private var copy: UeVM { UeVM(withUe: self.model) }
+    
+    var editedCopy: UeVM?
+    
+    func onEditing(){
+        editedCopy = self.copy
+        isEditing = true
+    }
+    
+    func onEdited(isCancelled cancel: Bool = false) {
+        if !cancel {
+            if let editedCopy = editedCopy {
+                self.model = editedCopy.model
             }
         }
+        isEditing = false
     }
+    
+    var addedItem: MatiereVM? = MatiereVM(withMat: Matiere(name: "", moy: 0.0, coef: 1))
+    
     @Published
-    var moyenne : Double = 0 {
-        didSet {
-            if self.model.moyenne != self.moyenne {
-                self.model.moyenne = self.moyenne
+    var isAdding: Bool = false
+    
+    func onAdding() {
+        addedItem = MatiereVM()
+        isAdding = true
+    }
+    func onAdded(isCancelled cancel:Bool = false) {
+           if !cancel {
+               if let addedItem = addedItem {
+                   self.someMatieresVM.append(addedItem)
+                   addedItem.subscribe(with: self, andWithFunction: onNotifyChanged(source:))
+               }
+           }
+           addedItem = nil
+           isAdding = false
+       }
+    func onDeleted(_ matiere:MatiereVM, isCancelled cancel: Bool = false) {
+        if !cancel {
+            if self.someMatieresVM.contains(matiere) {
+                self.someMatieresVM.filter { $0 == matiere }
+                                   .forEach { $0.unsubscribe(with: self) }
+                self.someMatieresVM.removeAll(where: {$0 == matiere})
             }
         }
     }
-    
-/* chaque fois que  someNounoursVM est modifié, le bloc  didSet vérifie si les modèles qu'il contient sont différents de ceux déjà présents dans self.model.someNounours. Si tel est le cas, il met à jour self.model.someNounours avec les nouveaux modèles.*/
-    @Published var someMatVM: [MatiereVm] = [] {
-            didSet {
-                let someModelMatier = self.someMatVM.map({$0.model})
-                if !self.model.listeMatiere.compare(to: someModelMatier){
-                    self.model.listeMatiere = someMatVM.map({$0.model})
-                }
-            }
-        }
-    init(withModel UE: UE) {
-         model = UE
-    }
-  
-    
-    
+
 }
+
 

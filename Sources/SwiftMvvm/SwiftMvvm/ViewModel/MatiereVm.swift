@@ -7,64 +7,99 @@
 
 import Foundation
 
-class MatiereVm : ObservableObject ,Identifiable {
-    // dans le model on met à kjour les donnes du vue model les proprietes à présenter à la vue
-    //on vérifie que someNounourscollection de Nounoursdu modèle est différent du someNounoursVMcollection de NounoursVM
-    @Published var model: Matiere = Matiere(id: UUID(), nom: "Ma mat", coefficient: 2, note: 12)  {
-        didSet{
-            
-            if self.model.nom != self.nom {
-                self.nom = self.model.nom
-            }
-            
-            if self.model.coefficient != self.coefficient {
-                self.coefficient = self.model.coefficient
-            }
-            if self.model.note != self.note
-            {
-                self.note = self.model.note
+
+class MatiereVM : ObservableObject, Identifiable, Equatable {
+    private var notificationFuncs: [AnyHashable:(MatiereVM) -> ()] = [:]
+    public func subscribe(with subscriber: AnyHashable, andWithFunction function:@escaping (MatiereVM) -> ()) {
+        notificationFuncs[subscriber] = function
+       }
+    
+    public func unsubscribe(with subscriber: AnyHashable) {
+            notificationFuncs.removeValue(forKey: subscriber)
+        }
+    func notifyChanged(){
+        for f in notificationFuncs.values {
+                f(self)
             }
         }
-    }
- /*
-  public let id: UUID
-  public  var nom: String
-  public   var coefficient: Double
-  public   var note:Double
-  */
-    public var id: UUID { model.id }
     
-    @Published
-        var nom: String = "" {
-            didSet {
-                if self.model.nom != self.nom {
-                    self.model.nom = self.nom
+    static func == (lhs: MatiereVM, rhs: MatiereVM) -> Bool {
+        lhs.id == rhs.id
+    }
+    
+    public var id: UUID { model.id }
+     @Published var model : Matiere = Matiere(name: "", moy: 0, coef: 0)
+    {
+        
+        didSet {
+                    if self.name != self.model.name {
+                        self.name = self.model.name
+                    };
+                    if self.moyenne != self.model.moyenne {
+                                self.moyenne = self.model.moyenne
+                            };
+                    if self.coef != self.model.coef {
+                                self.coef = self.model.coef
+                            }
+            self.notifyChanged()
                 }
             }
-        }
-    
+    @Published
+    var name: String = "" {
+        didSet {
+            if self.model.name != self.name {
+                self.model.name = self.name
+            }
+         }
+    }
+
+    @Published
+    var moyenne: Float=0 {
+        didSet {
+            if self.model.moyenne != self.moyenne {
+                self.model.moyenne = self.moyenne
+           
+            }
+         }
+     }
     
     @Published
-    var coefficient : Double = 0 {
+    var coef: Int = 0 {
         didSet {
-            if self.model.coefficient != self.coefficient {
-                self.model.coefficient = self.coefficient
+            if self.model.coef != self.coef {
+                self.model.coef = self.coef
             }
-        }
+         }
     }
+    
+    public init(){}
+    
+    init(withMat mat : Matiere) {
+        
+        self.model = mat
+    }  
     @Published
-    var note : Double = 0 {
-        didSet {
-            if self.model.note != self.note {
-                self.model.note = self.note
-            }
+        var isEditing: Bool = false
+        
+        private var copy: MatiereVM { MatiereVM(withMat: self.model) }
+        
+        var editedCopy: MatiereVM?
+        
+        func onEditing(){
+            editedCopy = self.copy
+            isEditing = true
         }
-    }
-    
-    init(withModel Matiere: Matiere) {
-         model = Matiere
-    }
-  
-    
+        
+        func onEdited(isCancelled cancel: Bool = false) {
+            if !cancel {
+                if let editedCopy = editedCopy {
+                    self.model = editedCopy.model
+                }
+            }
+            editedCopy = nil
+            isEditing = false
+        }
     
 }
+
+

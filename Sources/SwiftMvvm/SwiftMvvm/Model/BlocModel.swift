@@ -5,26 +5,25 @@
 //  Created by etudiant on 25/05/2023.
 //
 
+
+
 import Foundation
-struct BlocModel: Identifiable ,Equatable {
-    static func == (lhs: BlocModel, rhs: BlocModel) -> Bool {
+public class Bloc : Identifiable, Equatable{
+    public static func == (lhs: Bloc, rhs: Bloc) -> Bool {
         lhs.id == rhs.id
     }
-        let id = UUID()
-        var Nombloc: String
-        var Moyenneg: Double
-        var listeUE: [UE]
-    public init(Nombloc: String, Moyenneg: Double,  listeUE: [UE]) {
-        self.Nombloc = Nombloc
-        self.Moyenneg = Moyenneg        
-        self.listeUE = listeUE
-    }
-    //a modifier l calcul de la moyenne
-   // func MoyenneBloc(bloc: BlocModel) -> Double {
-       // let sumOfMoyennes = bloc.listeUE.reduce(into: 0.0) { $0 + $1.MoyenneUE }
-       // let numberOfUEs = Double(bloc.listeUE.count)
-      //  return sumOfMoyennes / numberOfUEs
-   // }
-
     
+    var nom : String
+    var isUnique : Bool
+    public var id : UUID
+    var ues : [Ue]
+    var total : Double {
+        return Double(ues.reduce(0) { $0 + $1.totalMoyenne }) / Double(ues.count)
+        }
+    init(nom: String,  ues: [Ue], isUq : Bool) {
+        self.id = UUID()
+        self.nom = nom
+        self.ues = ues
+        self.isUnique = isUq
+    }
 }

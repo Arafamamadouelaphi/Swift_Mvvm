@@ -6,19 +6,21 @@
 //
 
 import Foundation
-public struct Matiere: Identifiable, Equatable {
+
+struct Matiere : Identifiable, Equatable{
     
-    public let id: UUID
-    public  var nom: String
-    public   var coefficient: Double
-    public   var note:Double
-    
-    
-     public init(id: UUID, nom: String, coefficient: Double,note :Double  ) {
-        self.id = id
-        self.nom = nom
-        self.coefficient = coefficient
-        self.note=note
-    
+    static func == (lhs: Matiere, rhs: Matiere) -> Bool {
+        lhs.id == rhs.id
+    }
+    let id: UUID
+    var name: String
+    var moyenne: Float
+    var  coef : Int
+
+    init( name: String, moy: Float, coef : Int) {
+        self.id = UUID()
+        self.name = name
+        self.moyenne = moy
+        self.coef = coef
     }
 }

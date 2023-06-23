@@ -8,69 +8,119 @@
 // BlocVM.swift
 
 import Foundation
-
-/* let id = UUID()
- var Nombloc: String
- var Moyenneg: Double
- var listeUE: [UE]*/
-
-class BlocVm : ObservableObject ,Equatable{
-    static func == (lhs: BlocVm, rhs: BlocVm) -> Bool {
+class BlocVM : ObservableObject, Identifiable, Equatable, Hashable {
+    static func == (lhs: BlocVM, rhs: BlocVM) -> Bool {
         lhs.id == rhs.id
     }
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(self.nom)
+        hasher.combine(self.totalMoyenne)
+        }
+    func onNotifyChanged(source:UeVM){
+        if let index = self.model.ues.firstIndex(where: {$0 == source.model}) {
+            self.model.ues[index] = source.model
+        }
+            self.objectWillChange.send()
+        }
+    private var notificationFuncs: [AnyHashable:(BlocVM) -> ()] = [:]
+
+    public func subscribe(with subscriber: AnyHashable, andWithFunction function:@escaping (BlocVM) -> ()) {
+        notificationFuncs[subscriber] = function
+       }
     
-    // dans le model on met à jour les donnes du vue model les proprietes à présenter à la vue
-    @Published var model: BlocModel = BlocModel(Nombloc: "", Moyenneg: 17, listeUE: [])
-    {
+    public func unsubscribe(with subscriber: AnyHashable) {
+            notificationFuncs.removeValue(forKey: subscriber)
+        }
+    private func onNotifyChanged(){
+        for f in notificationFuncs.values {
+            print("moi")
+                f(self)
+            }
+        }
+    @Published  var totalMoyenne: Double = 0.0 {
         didSet{
-            
-            if self.model.Nombloc != self.Nombloc {
-                self.Nombloc = self.model.Nombloc
-            }
-            
-            if self.model.Moyenneg != self.Moyenneg {
-                self.Moyenneg = self.model.Moyenneg
-            }
-            if !self.model.listeUE.compare(to: self.someUeVM.map({$0.model})){
-                            self.someUeVM = self.model.listeUE.map({UeVm(withModel: $0)})
-                        }
-           
+       let moy = updateTotalMoyenne()
+            print("Moy =\(moy)")
+            if moy != self.totalMoyenne {
+                self.totalMoyenne = moy
+             }
+             self.onNotifyChanged()
         }
     }
+    @Published var isUnique : Bool = false {
+        didSet{
+            if self.isUnique != self.model.isUnique {
+                self.model.isUnique = self.isUnique
+            }
+        }
+    }
+  public func updateTotalMoyenne()->Double {
+
+      let totalMoyenn = self.someUesVM.reduce(0.0) { $0 + Double($1.totalMoyenne) * Double($1.coef) }
+      let totalCoef = self.someUesVM.reduce(0.0) { $0 + Double($1.coef) }
+      
+      print("bloc")
+      print( totalMoyenn / totalCoef)
+        return totalMoyenn / totalCoef
+
+    }
+    
+    @Published var model : Bloc = Bloc(nom: "Total", ues: DataStub().load(), isUq: false) {
+        
+        willSet(newValue) {
+            if !self.someUesVM.map({$0.model}).compare(to: newValue.ues){
+                self.someUesVM.forEach { uevm in
+                    uevm.unsubscribe(with: self)
+                }
+            }
+        }
+        didSet{
+            if self.model.nom != self.nom {
+                self.nom = self.model.nom
+            }
+            
+            if !self.model.ues.compare(to: self.someUesVM.map({$0.model})){
+                            self.someUesVM = self.model.ues.map({UeVM(withUe: $0)})
+                self.someUesVM.forEach { uevm in
+                    uevm.subscribe(with: self, andWithFunction: onNotifyChanged(source:))
+                 }
+            }
+            
+            if self.model.isUnique != self.isUnique {
+                self.isUnique = self.model.isUnique
+            }
+            
+            let moy = updateTotalMoyenne()
+            if moy != self.totalMoyenne {
+                self.totalMoyenne = moy
+            }
+            
+            self.onNotifyChanged()
+        }
+    }
+    init(withBloc blc : Bloc) {
+        self.model = blc
+         
+     }
     public var id: UUID { model.id }
-    
+
     @Published
-        var Nombloc: String = "" {
-            didSet {
-                if self.model.Nombloc != self.Nombloc {
-                    self.model.Nombloc = self.Nombloc
-                }
-            }
-        }
-    @Published
-    var Moyenneg : Double = 0 {
+    var nom: String = "" {
         didSet {
-            if self.model.Moyenneg != self.Moyenneg {
-                self.model.Moyenneg = self.Moyenneg
+            if self.model.nom != self.nom {
+                self.model.nom = self.nom
             }
         }
     }
-    //collection on met a jour le Ue avec l dernier
-    @Published var someUeVM: [UeVm] = [] {
-            didSet {
-                let someModelUe = self.someUeVM.map({$0.model})
-                if !self.model.listeUE.compare(to: someModelUe){
-                    self.model.listeUE = someUeVM.map({$0.model})
-                }
+    @Published var someUesVM: [UeVM] = [] {
+        didSet {
+            let someModelue = self.someUesVM.map({$0.model})
+                        if !self.model.ues.compare(to: someModelue){
+                            self.model.ues = someModelue.map({$0})
+                        
             }
-        }
-   
-    init(withModel BlocModel: BlocModel) {
-         model = BlocModel
+          }
     }
-  
-    
-    
 }
 
 

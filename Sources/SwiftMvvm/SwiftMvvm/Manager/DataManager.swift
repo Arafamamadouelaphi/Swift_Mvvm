@@ -9,6 +9,7 @@
 import Foundation
 
 public protocol DataManager {
-    func loadUes() -> [UE]
-    func save(ues: [UE])
+    func load() -> [Ue]
+    func loadUeStage_Proj() -> [Ue]
+    func save(ues: [Ue])
 }

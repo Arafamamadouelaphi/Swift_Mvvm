@@ -6,26 +6,24 @@
 //
 
 import Foundation
-public struct UE: Identifiable,Equatable {
-    public static func == (lhs: UE, rhs: UE) -> Bool {
+public struct Ue : Identifiable, Equatable {
+    public static func == (lhs: Ue, rhs: Ue) -> Bool {
         lhs.id == rhs.id
     }
     
-    public let id: UUID
-    var coefficient: Double
-    var moyenne: Double
-    var nom: String
-    var listeMatiere: [Matiere]
-    public init(id: UUID, coefficient: Double, moyenne: Double, nom: String, listeMatiere: [Matiere]) {
-        self.id = id
-        self.coefficient = coefficient
-        self.moyenne = moyenne
-        self.nom = nom
-        self.listeMatiere = listeMatiere
-    }
-    func calculerMoyenneUE() -> Double {
-        let sommeDesNotes = listeMatiere.reduce(into: 0) { $0 + $1.note }
-            let nombreDeMatieres = Double(listeMatiere.count)
-            return sommeDesNotes / nombreDeMatieres
+    public let id : UUID
+     var nom: String
+    var coef : Int
+     var matieres: [Matiere]
+
+    var totalMoyenne: Double {
+        return Double(matieres.reduce(0) { $0 + $1.moyenne }) / Double(matieres.count)
         }
+    
+    init( nom: String, matieres: [Matiere], coef : Int) {
+        self.id = UUID()
+         self.nom = nom
+        self.matieres = matieres
+        self.coef = coef
+    }
 }

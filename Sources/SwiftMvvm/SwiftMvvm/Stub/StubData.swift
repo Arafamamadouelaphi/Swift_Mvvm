@@ -5,7 +5,7 @@
 //  Created by etudiant on 09/06/2023.
 //
 
-import Foundation
+/*import Foundation
 import SwiftUI
 
 let stubUES: [UE] = [
@@ -16,5 +16,5 @@ let stubUES: [UE] = [
     UE(id: UUID(), coefficient: 9, moyenne: 13.5, nom: "UE5 : Technologies Mobiles 2", listeMatiere: []),
     UE(id: UUID(), coefficient: 9, moyenne: 11.0, nom: "UE6 : Projet", listeMatiere: []),
     UE(id: UUID(), coefficient: 9, moyenne: 15.0, nom: "UE7 : ÉconoStagemie", listeMatiere: [])
-]
+]*/
 

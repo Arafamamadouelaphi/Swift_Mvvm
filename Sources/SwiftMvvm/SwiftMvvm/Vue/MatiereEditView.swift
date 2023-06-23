@@ -2,53 +2,55 @@
 //  MatiereEditView.swift
 //  SwiftMvvm
 //
-//  Created by etudiant on 10/06/2023.
+//  Created by etudiant on 23/06/2023.
 //
 
+import Foundation
 import SwiftUI
 
-struct MatiereEditView: View {
-    @Binding var matiere : Matiere
+
+struct MatiereEditView   : View{
+    @ObservedObject var matiere: MatiereVM
+    
     var body: some View {
-        VStack {
-            NavigationLink(destination: TextField("", text: $matiere.nom, prompt: Text("enter the name"))
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationTitle("Name")) {
-                    HStack {
-                        Text("Nom")
-                        Spacer()
-                        Text(matiere.nom)
-                            .foregroundColor(.gray)
-                    }
+        HStack{
+            if self.matiere.isEditing {
+                VStack {
+                    TextField("Nom", text: $matiere.name)
+                    TextField("Coefficient", value: $matiere.coef, format: .number)
+                    Divider()
                 }
+            } else {
+                VStack {
+                    Text(matiere.name)
+                    Text(matiere.coef, format: .number)
+                    Divider()
+                }
+            }
+            Button(action: {
+                if self.matiere.isEditing {
+                    print(self.matiere.coef)
+
+                    self.matiere.onEdited(isCancelled: true)
+                } else {
+                    self.matiere.onEditing()
+                    
+                }
+                
+            }) {
+                Text( self.matiere.isEditing ? "Done" : "Modifier")
+            }
             
-            NavigationLink(destination: TextField("", value: $matiere.coefficient, format: .number, prompt: Text("enter the count"))
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationTitle("Hair count")) {
-                    HStack {
-                        Text("coef")
-                        Spacer()
-                        Text(String(matiere.coefficient))
-                            .foregroundColor(.gray)
-                    }
-                }
+           
             
-            NavigationLink(destination: TextField("", value: $matiere.note, format: .number, prompt: Text("enter the note"))
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationTitle("note")) {
-                    HStack {
-                        Text("Note")
-                        Spacer()
-                        Text(String(matiere.note))
-                            .foregroundColor(.gray)
-                    }
-                }
         }
+       
     }
 }
 
 struct MatiereEditView_Previews: PreviewProvider {
     static var previews: some View {
-        MatiereEditView(matiere: .constant(Stub().loadUes()[0].listeMatiere[0]))
+        let matiere = MatiereVM(withMat: DataStub().loadMartiereUE1()[0])
+        MatiereEditView(matiere: matiere)
     }
 }

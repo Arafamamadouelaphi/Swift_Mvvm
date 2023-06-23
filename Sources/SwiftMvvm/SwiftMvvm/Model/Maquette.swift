@@ -5,7 +5,7 @@
 //  Created by etudiant on 25/05/2023.
 //
 
-import Foundation
+/*import Foundation
 struct Maquette {
     var listeBloc: [BlocModel]
     var listeUE: [UE]    
@@ -14,3 +14,4 @@ struct Maquette {
         self.listeUE = listeUE
     }
 }
+*/

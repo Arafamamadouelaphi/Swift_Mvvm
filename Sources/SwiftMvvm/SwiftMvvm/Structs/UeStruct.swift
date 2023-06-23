@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension UE {
+extension UeView {
     struct Data: Identifiable {
         let id = UUID()
         var coefficient: Double

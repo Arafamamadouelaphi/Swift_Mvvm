@@ -5,7 +5,7 @@
 //  Created by etudiant on 26/05/2023.
 //
 
-import Foundation
+/*import Foundation
 extension BlocModel {
     struct Data: Identifiable {
         let id = UUID()
@@ -22,5 +22,5 @@ extension BlocModel {
     }
     
 }
-    
+    */
     
